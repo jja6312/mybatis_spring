@@ -12,6 +12,7 @@
     String id = session.getAttribute("id")+"";
     String name = (String) session.getAttribute("name");
     String loginError = (String) request.getAttribute("loginError");
+    String msg = (String)request.getAttribute("msg");
 %>
 
 <% if (name == null || id=="") { %>
@@ -39,6 +40,8 @@
 <a href="/list">목록</a>
 <a href="/writeform">등록</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../../../resources/static/js/my.js"></script>
+<script>
+    <% if(msg!=null) {%> alert("<%=msg%>"); <%}%>
+</script>
 </body>
 </html>

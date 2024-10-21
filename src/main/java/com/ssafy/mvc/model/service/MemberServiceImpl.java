@@ -14,13 +14,16 @@ public class MemberServiceImpl implements MemberService{
     }
 
 
+    //회원가입
     @Override
     public void createMember(Member member) {
         memberDao.createMember(member);
     }
 
+
+    //로그인
     @Override
-    public Member login(LoginDto loginDto) {
-        return memberDao.login(loginDto);
+    public Member login(Member member) {
+        return memberDao.login(member);
     }
 }

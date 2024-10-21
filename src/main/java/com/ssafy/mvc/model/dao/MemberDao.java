@@ -8,6 +8,6 @@ public interface MemberDao {
     void createMember(Member member);
 
     // 아이디,패스워드로 멤버 조회
-    Member login(LoginDto loginDto);
+    Member login(Member member);
 
 }

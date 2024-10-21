@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
     void createMember(Member member);
 
-    Member login(LoginDto loginDto);
+    Member login(Member member);
 }
