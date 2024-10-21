@@ -1,5 +1,7 @@
 package com.ssafy.mvc.model.dto.member;
 
+import com.ssafy.mvc.model.exception.member.MemberLoginException;
+
 public class Member {
     private int id;
     private String email;
@@ -25,6 +27,9 @@ public class Member {
     }
 
     public void setEmail(String email) {
+        if("".equals(email.trim())){
+            throw new MemberLoginException("유효하지 않은 이메일");
+        }
         this.email = email;
     }
 
