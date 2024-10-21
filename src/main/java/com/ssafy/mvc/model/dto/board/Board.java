@@ -1,4 +1,4 @@
-package com.ssafy.mvc.model.dto;
+package com.ssafy.mvc.model.dto.board;
 
 public class Board {
 	private int id;

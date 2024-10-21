@@ -1,6 +1,8 @@
 package com.ssafy.mvc.model.dto.member;
 
-public class LoginDto {
+import com.ssafy.mvc.model.dto.Dto;
+
+public class LoginDto implements Dto {
     private String email;
     private String password;
 

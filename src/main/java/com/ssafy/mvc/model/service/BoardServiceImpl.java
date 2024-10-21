@@ -1,8 +1,7 @@
 package com.ssafy.mvc.model.service;
 
 import com.ssafy.mvc.model.dao.BoardDao;
-import com.ssafy.mvc.model.dto.Board;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ssafy.mvc.model.dto.board.Board;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

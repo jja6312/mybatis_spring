@@ -1,8 +1,10 @@
 package com.ssafy.mvc.model.dto.member;
 
+import com.ssafy.mvc.model.dto.Dto;
 import com.ssafy.mvc.model.exception.member.MemberLoginException;
+import com.ssafy.mvc.model.validator.member.MemberValidator;
 
-public class Member {
+public class Member implements Dto {
     private int id;
     private String email;
     private String password;
@@ -27,9 +29,6 @@ public class Member {
     }
 
     public void setEmail(String email) {
-        if("".equals(email.trim())){
-            throw new MemberLoginException("유효하지 않은 이메일");
-        }
         this.email = email;
     }
 

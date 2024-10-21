@@ -2,7 +2,7 @@ package com.ssafy.mvc.model.service;
 
 import java.util.List;
 
-import com.ssafy.mvc.model.dto.Board;
+import com.ssafy.mvc.model.dto.board.Board;
 
 
 public interface BoardService {

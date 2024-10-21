@@ -1,6 +1,6 @@
 package com.ssafy.mvc.controller;
 
-import com.ssafy.mvc.model.dto.Board;
+import com.ssafy.mvc.model.dto.board.Board;
 import com.ssafy.mvc.model.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 

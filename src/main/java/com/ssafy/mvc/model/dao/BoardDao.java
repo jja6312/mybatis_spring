@@ -1,7 +1,7 @@
 package com.ssafy.mvc.model.dao;
 
 
-import com.ssafy.mvc.model.dto.Board;
+import com.ssafy.mvc.model.dto.board.Board;
 
 import java.util.List;
 
