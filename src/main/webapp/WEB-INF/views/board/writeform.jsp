@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<h2>글작성</h2>
-		<form action="write" method="POST">
+		<form action="/board/write" method="POST">
 			<div class="mb-3">
 				<label for="title" class="form-label">글제목</label>
 				<input type="text" class="form-control" id="title" name="title">

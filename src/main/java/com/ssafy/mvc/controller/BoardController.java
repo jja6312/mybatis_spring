@@ -5,14 +5,12 @@ import com.ssafy.mvc.model.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("board")
 public class BoardController {
 
     private final BoardService boardService;
@@ -26,7 +24,6 @@ public class BoardController {
     public String list(Model model){
         List<Board> boards = boardService.getBoardList();
         model.addAttribute("boards", boards);
-        // 포워딩임
         return "/board/list";
     }
 

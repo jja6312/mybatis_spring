@@ -11,8 +11,8 @@
 <%
     String id = session.getAttribute("id")+"";
     String name = (String) session.getAttribute("name");
-    String loginError = (String) request.getAttribute("loginError");
-    String msg = (String)request.getAttribute("msg");
+    String loginError = (String) session.getAttribute("loginError");
+    String msg = (String)session.getAttribute("msg");
 %>
 
 <% if (name == null || id=="") { %>
@@ -37,11 +37,15 @@
 </div>
 <%} %>
 
-<a href="/list">목록</a>
-<a href="/writeform">등록</a>
+<a href="/board/list">목록</a>
+<a href="/board/writeform">등록</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    <% if(msg!=null) {%> alert("<%=msg%>"); <%}%>
+    <% if(msg!=null) {%>
+    alert("<%=msg%>");
+    <%
+    session.removeAttribute("msg");
+    }%>
 </script>
 </body>
 </html>

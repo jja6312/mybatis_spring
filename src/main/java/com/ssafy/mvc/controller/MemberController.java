@@ -33,22 +33,23 @@ public class MemberController {
 
     // 회원가입
     @PostMapping("createMember")
-    public String createMember(@ModelAttribute Member member, RedirectAttributes redirectAttributes) {
+    public String createMember(@ModelAttribute Member member) {
         memberService.createMember(member);
         return "redirect:/";
     }
 
     // 로그인
     @PostMapping("login")
-    public String login(@ModelAttribute Member member, HttpServletRequest request, RedirectAttributes redirectAttributes) throws ServletException, IOException {
+    public String login(@ModelAttribute Member member, HttpServletRequest request){
         member = memberService.login(member);
+        HttpSession session = request.getSession();
         if (member.getName() != null) {// 로그인 성공시
             // 세션 저장
-            HttpSession session = request.getSession();
             session.setAttribute("id", member.getId());
             session.setAttribute("name", member.getName());
         } else {// 로그인 실패시
-            redirectAttributes.addFlashAttribute("loginError", "이메일 혹은 패스워드가 틀렸습니다.");
+            // 안내 메시지
+            session.setAttribute("loginError", "이메일 혹은 패스워드가 틀렸습니다.");
         }
         return "redirect:/";
     }

@@ -22,7 +22,7 @@
             <c:forEach items="${boards}" var="board">
                 <tr>
                     <td>${board.id}</td>
-                    <td><a href="detail?id=${board.id}">${board.title}</td>
+                    <td><a href="/board/detail?id=${board.id}">${board.title}</td>
                     <td>${board.writer}</td>
                     <td>${board.viewCnt}</td>
                     <td>${board.regDate}</td>
@@ -30,7 +30,7 @@
             </c:forEach>
         </table>
         <div class="d-flex justify-content-end">
-            <a class="btn btn-outline-primary" href="/writeform">글 쓰기</a>
+            <a class="btn btn-outline-primary" href="/board/writeform">글 쓰기</a>
 
         </div>
 

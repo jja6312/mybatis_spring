@@ -20,9 +20,9 @@
 				</div>
 				<p class="card-text">${board.content}</p>
 				<div>
-					<a href="delete?id=${board.id}" class="btn btn-info">삭제</a> 
-					<a href="updateform?id=${board.id}" class="btn btn-success">수정</a> 
-					<a href="list" class="btn btn-warning">목록</a> 
+					<a href="/board/delete?id=${board.id}" class="btn btn-info">삭제</a>
+					<a href="/board/updateform?id=${board.id}" class="btn btn-success">수정</a>
+					<a href="/board/list" class="btn btn-warning">목록</a>
 				</div>
 			</div>
 		
