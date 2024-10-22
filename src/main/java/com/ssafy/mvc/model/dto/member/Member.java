@@ -8,6 +8,11 @@ public class Member {
     private String password;
     private String name;
 
+    // 암호화된 비밀번호를 유효성 검증 없이 설정
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.password = encryptedPassword; // 유효성 검사 없이 암호화된 비밀번호를 설정
+    }
+
     public int getId() {
         return id;
     }

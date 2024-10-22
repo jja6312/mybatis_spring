@@ -10,4 +10,5 @@ public interface MemberDao {
     // 아이디,패스워드로 멤버 조회
     Member login(Member member);
 
+    Member findByEmail(String email);
 }

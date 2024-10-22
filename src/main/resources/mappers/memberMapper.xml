@@ -13,4 +13,9 @@
         INSERT INTO member (email, password, name)
         VALUES (#{email}, #{password}, #{name});
     </insert>
+    <!-- 로그인 -->
+    <select id="findByEmail" resultType="com.ssafy.mvc.model.dto.member.Member" parameterType="String">
+        SELECT * FROM member
+        WHERE email = #{email};
+    </select>
 </mapper>

@@ -43,7 +43,7 @@ public class MemberController {
     public String login(@ModelAttribute Member member, HttpServletRequest request){
         member = memberService.login(member);
         HttpSession session = request.getSession();
-        if (member.getName() != null) {// 로그인 성공시
+        if (member != null) {// 로그인 성공시
             // 세션 저장
             session.setAttribute("id", member.getId());
             session.setAttribute("name", member.getName());
