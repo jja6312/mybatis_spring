@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mvc.model.dao.MemberSecuInfoDao">
+    <select id="findByMemberId" parameterType="Integer">
+        SELECT * FROM member_secuinfo WHERE member_id = #{memberId}
+    </select>
+
+    <!-- 회원별 salt 등록 -->
+    <insert id="insertMemberSecuInfo" parameterType="com.ssafy.mvc.model.dto.member.MemberSecuInfo">
+        INSERT INTO member_secuinfo (member_id, salt, `key`)
+        VALUES (#{memberId}, #{salt}, #{key});
+    </insert>
+</mapper>

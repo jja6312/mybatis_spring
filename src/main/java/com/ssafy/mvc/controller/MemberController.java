@@ -2,6 +2,7 @@ package com.ssafy.mvc.controller;
 
 import com.ssafy.mvc.model.dto.member.LoginDto;
 import com.ssafy.mvc.model.dto.member.Member;
+import com.ssafy.mvc.model.dto.member.MemberWithoutValid;
 import com.ssafy.mvc.model.exception.member.MemberCreateException;
 import com.ssafy.mvc.model.exception.member.MemberLoginException;
 import com.ssafy.mvc.model.service.MemberService;
@@ -41,12 +42,12 @@ public class MemberController {
     // 로그인
     @PostMapping("login")
     public String login(@ModelAttribute Member member, HttpServletRequest request){
-        member = memberService.login(member);
+        MemberWithoutValid findMember = memberService.login(member);
         HttpSession session = request.getSession();
-        if (member != null) {// 로그인 성공시
+        if (findMember != null) {// 로그인 성공시
             // 세션 저장
-            session.setAttribute("id", member.getId());
-            session.setAttribute("name", member.getName());
+            session.setAttribute("id", findMember.getId());
+            session.setAttribute("name", findMember.getName());
         } else {// 로그인 실패시
             // 안내 메시지
             session.setAttribute("loginError", "이메일 혹은 패스워드가 틀렸습니다.");

@@ -1,6 +1,7 @@
 package com.ssafy.mvc.util;
 
 import com.ssafy.mvc.model.dto.member.Member;
+import com.ssafy.mvc.model.service.MemberService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,40 +15,43 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class OpenCrypt {
 
     public OpenCrypt() {}
 
-    @Pointcut("execution(* com.ssafy.mvc.model.service.MemberServiceImpl.create*(..))")
+//    @Pointcut("execution(* com.ssafy.mvc.model.service.MemberServiceImpl.createMember(..))")
     public void encryptPointCut(){
     }
 
-    @Pointcut("execution(* com.ssafy.mvc.model.service.MemberServiceImpl.login(..))")
+//    @Pointcut("execution(* com.ssafy.mvc.model.service.MemberServiceImpl.login(..))")
     public void decryptPointCut(){
     }
 
-    @Around("encryptPointCut()")
-    public void encryptPw(ProceedingJoinPoint pjt){
-        System.out.println("aop의 encryptPw호출됨");
-        Object[] args = pjt.getArgs();
-        Member member = (Member) args[0];
-        String password = member.getPassword();
-        String salt = "salt";//이런 솔트는 아주 위험하다. 원래는 랜덤값으로 주어진다.
-
-        byte[] hashPw = getSHA256(password, salt);// 암호화
-        String hashPw2 = byteArrayToHex(hashPw);// 암호화2 ?
-        member.setEncryptedPassword(hashPw2);
-
-        try {
-            pjt.proceed();
-        }catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-
-    }
+//    @Around("encryptPointCut()")
+//    public void encryptPw(ProceedingJoinPoint pjt){
+//        System.out.println("aop의 encryptPw호출됨");
+//        Object[] args = pjt.getArgs();
+//        Member member = (Member) args[0];
+//        String password = member.getPassword();
+//        String salt = UUID.randomUUID().toString();
+//
+//        byte[] hashPw = getSHA256(password, salt);// 암호화
+//        String hashPw2 = byteArrayToHex(hashPw);// 암호화2 ?
+//        member.setEncryptedPassword(hashPw2);
+//
+//        try {
+////            pjt.proceed();
+//            // AOP에서 salt 값을 함께 전달하여 createMember 호출
+//            ((MemberService) pjt.getTarget()).createMemberWithSalt(member, salt);
+//        }catch (Throwable e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
 
 
 

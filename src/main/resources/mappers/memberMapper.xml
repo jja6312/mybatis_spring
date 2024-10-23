@@ -9,12 +9,13 @@
         WHERE email = #{email} and password=#{password};
     </select>
     <!-- 회원 등록 -->
-    <insert id="createMember" parameterType="com.ssafy.mvc.model.dto.member.Member">
+    <insert id="insertMember" parameterType="com.ssafy.mvc.model.dto.member.Member">
         INSERT INTO member (email, password, name)
         VALUES (#{email}, #{password}, #{name});
     </insert>
+
     <!-- 로그인 -->
-    <select id="findByEmail" resultType="com.ssafy.mvc.model.dto.member.Member" parameterType="String">
+    <select id="findByEmail" resultType="com.ssafy.mvc.model.dto.member.MemberWithoutValid" parameterType="String">
         SELECT * FROM member
         WHERE email = #{email};
     </select>
